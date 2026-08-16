@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: yehia-salah-qa-portfolio
+    runtime: python
+    plan: free
+    buildCommand: bash build.sh
+    startCommand: gunicorn config.wsgi:application
+    envVars:
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        generateValue: true
